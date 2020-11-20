@@ -1,0 +1,32 @@
+containers:
+  python_tensorflow:
+    image: tensorflow/tensorflow:2.1.0-py3
+    working_directory: /code
+    volumes:
+      - local: .
+        container: /code
+      - type: cache
+        name: python-dev-dependencies
+        container: /code/.venv-dev
+    ports:
+      - local: 8888
+        container: 8888
+
+tasks:
+  setup:
+    description: Setup and install dependencies
+    run:
+      container: python_tensorflow
+      command: bin/setup.sh
+
+  train_model:
+    description: Train ML model
+    run:
+      container: python_tensorflow
+      command: bin/train-model.sh
+
+  start_jupyter:
+    description: Start jupyter server
+    run:
+      container: python_tensorflow
+      command: bin/start-jupyter.sh
