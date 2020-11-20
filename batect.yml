@@ -12,6 +12,15 @@ containers:
       - local: 8888
         container: 8888
 
+  gcloud:
+    image: google/cloud-sdk
+    working_directory: /code
+    volumes:
+      - local: .
+        container: /code
+    environment:
+      GOOGLE_APPLICATION_CREDENTIALS: /code/credentials/batect-keras-demo-ed773102b27a-admin.json
+
 tasks:
   setup:
     description: Setup and install dependencies
@@ -30,3 +39,9 @@ tasks:
     run:
       container: python_tensorflow
       command: bin/start-jupyter.sh
+
+  deploy:
+    description: Deploy model to GCP
+    run:
+      container: gcloud
+      command: bin/deploy.sh
