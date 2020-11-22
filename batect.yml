@@ -63,3 +63,9 @@ tasks:
     run:
       container: gcloud
       command: bin/deploy-model.sh
+
+  get_predictions:
+    description: Get predictions from ML model
+    run:
+      container: gcloud
+      command: bin/get-predictions.sh

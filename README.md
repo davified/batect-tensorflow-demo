@@ -51,3 +51,4 @@
 - add unit test script
 - add tensorboard command
 - add CI
+- refactor
