@@ -36,6 +36,9 @@
 
 ## Other things you can do 
 ```shell script
+# launch tensorboard
+./batect launch_tensorboard # visit http://localhost:6006 on your browser
+
 # start jupyter server (if you need it for your workflow)
 ./batect start_jupyter
 ```
@@ -49,6 +52,11 @@
 
 # TODOs:
 - add unit test script
-- add tensorboard command
+- [x] add tensorboard command
 - add CI
-- refactor
+- refactor shell scripts
+- draw diagram for batect
+    - what you want to do (e.g. python train.py)
+    - run in a docker container
+    - batect command
+    - callers of batect: developers, CI

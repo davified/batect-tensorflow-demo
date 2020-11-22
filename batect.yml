@@ -11,6 +11,8 @@ containers:
     ports:
       - local: 8888
         container: 8888
+      - local: 6006
+        container: 6006
 
   gcloud:
     image: google/cloud-sdk
@@ -63,9 +65,17 @@ tasks:
     run:
       container: gcloud
       command: bin/deploy-model.sh
+      environment:
+        JOB_NAME: $JOB_NAME
 
   get_predictions:
     description: Get predictions from ML model
     run:
       container: gcloud
       command: bin/get-predictions.sh
+
+  launch_tensorboard:
+    description: Launch tensorboard
+    run:
+      container: python_tensorflow
+      command: bin/launch-tensorboard.sh

@@ -5,7 +5,6 @@ set -e
 PROJECT_ID='batect-keras-demo'
 MODEL_NAME="my_keras_model"
 JOB_DIR='gs://batect-keras-demo/keras-job-dir'
-JOB_NAME=$1
 
 echo "Authenticating using service account credentials: $GOOGLE_APPLICATION_CREDENTIALS"
 gcloud auth activate-service-account --key-file=$GOOGLE_APPLICATION_CREDENTIALS
