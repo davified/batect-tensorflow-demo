@@ -10,6 +10,9 @@
 # install dependencies
 ./batect setup # this will take a couple of minutes when it's first run, but batect.yml specifies some caching so subsequent runs will be faster 
 
+# run unit tests
+./batect unit_test
+
 # train model locally
 ./batect train_model
 
@@ -26,7 +29,7 @@
 ./batect create_model_resource
 
 # deploy model version
-./batect deploy_model -- REPLACE_ME_WITH__JOB_ID 
+./batect deploy_model -- REPLACE_ME_WITH_JOB_NAME 
 # you can find this in the terminal output of the ./batect train_model_on_gcloud command 
 # (e.g. ./batect deploy_model -- train_model_job_1606023193)
 
@@ -51,11 +54,11 @@
 
 
 # TODOs:
-- add unit test script
+- [x] add unit test script
 - [x] add tensorboard command
 - add CI
 - refactor shell scripts
-- draw diagram for batect
+- [x] draw diagram for batect
     - what you want to do (e.g. python train.py)
     - run in a docker container
     - batect command

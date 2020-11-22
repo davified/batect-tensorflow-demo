@@ -125,8 +125,12 @@ def train_and_evaluate(args):
         verbose=1,
         callbacks=[lr_decay_cb, tensorboard_cb])
 
+    return keras_model
+
+
+def save_model(model):
     export_path = os.path.join(args.job_dir, 'keras_export', args.job_name)
-    export_saved_model(keras_model, export_path)
+    export_saved_model(model, export_path)
     # tf.keras.models.save_model(keras_model, export_path)
     print('Model exported to: {}'.format(export_path))
 
@@ -134,4 +138,5 @@ def train_and_evaluate(args):
 if __name__ == '__main__':
     args = get_args()
     tf.compat.v1.logging.set_verbosity(args.verbosity)
-    train_and_evaluate(args)
+    keras_model = train_and_evaluate(args)
+    save_model(keras_model)

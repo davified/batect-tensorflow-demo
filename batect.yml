@@ -30,6 +30,12 @@ tasks:
       container: python_tensorflow
       command: bin/setup.sh
 
+  unit_test:
+    description: Run unit tests
+    run:
+      container: python_tensorflow
+      command: bin/unit-test.sh
+
   train_model:
     description: Train ML model
     run:
