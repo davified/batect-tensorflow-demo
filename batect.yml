@@ -34,11 +34,23 @@ tasks:
       container: python_tensorflow
       command: bin/train-model.sh
 
+  train_model_on_gcloud:
+    description: Train model on GCP
+    run:
+      container: gcloud
+      command: bin/train-model-on-gcloud.sh
+
   start_jupyter:
     description: Start jupyter server
     run:
       container: python_tensorflow
       command: bin/start-jupyter.sh
+
+  init:
+    description: Initialise things needed for deployment (e.g. bucket)
+    run:
+      container: gcloud
+      command: bin/init.sh
 
   deploy:
     description: Deploy model to GCP

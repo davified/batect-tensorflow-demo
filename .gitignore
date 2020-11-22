@@ -22,3 +22,6 @@ build/
 
 # secrets
 credentials/*.json
+
+# tensorflow / keras
+local-training-output

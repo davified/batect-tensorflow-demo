@@ -13,9 +13,12 @@
 # train model locally
 ./batect train_model
 
+# train model on GCP
+./batect train_model_on_gcloud
+# view job progress and logs at https://console.cloud.google.com/ai-platform/dashboard?project=YOUR_PROJECT_ID
+
 # start jupyter server (if you need it for your workflow)
 ./batect start_jupyter
-
 ```
 
 
