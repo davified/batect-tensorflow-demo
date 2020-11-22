@@ -52,8 +52,14 @@ tasks:
       container: gcloud
       command: bin/init.sh
 
-  deploy:
+  create_model_resource:
+    description: Create model resource on GCP
+    run:
+      container: gcloud
+      command: bin/create-model-resource.sh
+
+  deploy_model:
     description: Deploy model to GCP
     run:
       container: gcloud
-      command: bin/deploy.sh
+      command: bin/deploy-model.sh
