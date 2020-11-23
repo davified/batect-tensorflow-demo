@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  docker: circleci/docker@1.5.0
+  maven: circleci/maven@1.0.3
 
 jobs:
   build-and-test:
@@ -15,7 +15,7 @@ jobs:
           command: ./batect unit_test
           name: Run unit tests
   train-model:
-    executor: docker/docker
+    executor: maven/default
     steps:
       - checkout
       - run:
