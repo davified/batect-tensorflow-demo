@@ -1,9 +1,6 @@
 # docs: https://batect.dev/tools/CircleCI.html
 version: 2.1
 
-orbs:
-  maven: circleci/maven@1.0.3
-
 jobs:
   build-and-test:
     machine:
@@ -18,7 +15,9 @@ jobs:
           command: ./batect unit_test
           name: Run unit tests
   train-model:
-    executor: maven/default
+    machine:
+      enabled: true
+      image: circleci/classic:201808-01
     steps:
       - checkout
       - run:
