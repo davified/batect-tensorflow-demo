@@ -8,6 +8,8 @@ jobs:
     executor: maven/default
     steps:
       - checkout
+      - setup_remote_docker:
+          version: 19.03.13
       - run:
           command: ./batect setup
           name: Setup dependencies
@@ -18,6 +20,8 @@ jobs:
     executor: maven/default
     steps:
       - checkout
+      - setup_remote_docker:
+          version: 19.03.13
       - run:
           command: ./batect train_model
           name: Train ML model
@@ -27,3 +31,5 @@ workflows:
     jobs:
       - build-and-test
       - train-model
+          requires:
+            - build-and-test
