@@ -2,8 +2,10 @@
 
 ## Prerequisites
 
-- Docker
-- Java (used by batect. you'll not be seeing Java code - I promise)
+- [Docker](https://docs.docker.com/desktop/)
+- Java 8 or newer (used by batect. you'll not be seeing Java code - I promise)
+- On Linux and macOS: bash and curl
+- On Windows: Windows 10 / Windows Server 2016 or later
 
 ## Setup
 
