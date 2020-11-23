@@ -3,6 +3,7 @@
 ## Prerequisites
 
 - Docker
+- Java (used by batect. you'll not be seeing Java code - I promise)
 
 ## Setup
 
@@ -54,6 +55,7 @@
 
 
 # TODOs:
+- Update README about credentials
 - [x] add unit test script
 - [x] add tensorboard command
 - add CI

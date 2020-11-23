@@ -2,7 +2,7 @@
 version: 2.1
 
 jobs:
-  build-and-test:
+  build:
     machine:
       enabled: true
       image: circleci/classic:201808-01
@@ -11,6 +11,13 @@ jobs:
     steps:
       - batect:
           task: setup
+  test:
+    machine:
+      enabled: true
+      image: circleci/classic:201808-01
+    environment:
+      BATECT_CACHE_TYPE: directory
+    steps:
       - batect:
           task: unit_test
   train-model:
