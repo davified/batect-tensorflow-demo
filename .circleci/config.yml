@@ -1,21 +1,28 @@
 version: 2.1
 
 orbs:
-  python: circleci/python@0.2.1
+  docker: circleci/docker@1.5.0
 
 jobs:
   build-and-test:
-    executor: python/default
+    executor: docker/docker
     steps:
       - checkout
-      - python/load-cache
-      - python/install-deps
-      - python/save-cache
       - run:
-          command: echo 'hi'
-          name: Test
+          command: ./batect setup
+          name: Setup dependencies
+      - run:
+          command: ./batect unit_test
+          name: Run unit tests
+  train-model:
+    steps:
+      - checkout
+      - run:
+          command: ./batect train_model
+          name: Train ML model
 
 workflows:
   main:
     jobs:
       - build-and-test
+      - train-model
