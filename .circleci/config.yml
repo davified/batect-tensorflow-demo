@@ -11,7 +11,7 @@ jobs:
     steps:
       - batect:
           task: setup
-  test:
+  unit-test:
     machine:
       enabled: true
       image: circleci/classic:201808-01
@@ -33,10 +33,13 @@ jobs:
 workflows:
   main:
     jobs:
-      - build-and-test
+      - build
+      - unit-test:
+          requires:
+            - build
       - train-model:
           requires:
-            - build-and-test
+            - unit-test
 
 commands:
   batect:
