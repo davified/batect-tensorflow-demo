@@ -1,3 +1,4 @@
+# docs: https://batect.dev/tools/CircleCI.html
 version: 2.1
 
 orbs:
@@ -5,11 +6,11 @@ orbs:
 
 jobs:
   build-and-test:
-    executor: maven/default
+    machine:
+      enabled: true
+      image: circleci/classic:201808-01
     steps:
       - checkout
-      - setup_remote_docker:
-          version: 19.03.13
       - run:
           command: ./batect setup
           name: Setup dependencies
@@ -20,8 +21,6 @@ jobs:
     executor: maven/default
     steps:
       - checkout
-      - setup_remote_docker:
-          version: 19.03.13
       - run:
           command: ./batect train_model
           name: Train ML model
