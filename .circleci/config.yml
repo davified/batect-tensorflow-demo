@@ -6,23 +6,22 @@ jobs:
     machine:
       enabled: true
       image: circleci/classic:201808-01
+    environment:
+      BATECT_CACHE_TYPE: directory
     steps:
-      - checkout
-      - run:
-          command: ./batect setup
-          name: Setup dependencies
-      - run:
-          command: ./batect unit_test
-          name: Run unit tests
+      - batect:
+          task: setup
+      - batect:
+          task: unit_test
   train-model:
     machine:
       enabled: true
       image: circleci/classic:201808-01
+    environment:
+      BATECT_CACHE_TYPE: directory
     steps:
-      - checkout
-      - run:
-          command: ./batect train_model
-          name: Train ML model
+      - batect:
+          task: train_model
 
 workflows:
   main:
@@ -31,3 +30,20 @@ workflows:
       - train-model:
           requires:
             - build-and-test
+
+commands:
+  batect:
+    description: "Run a task using batect"
+    parameters:
+      task:
+        type: string
+    steps:
+      - checkout
+      - restore_cache:
+          key: batect-caches-{{ arch }}-{{ checksum "requirements-dev.txt" }}
+      - run:
+          command: ./batect << parameters.task >>
+      - save_cache:
+          key: batect-caches-{{ arch }}-{{ checksum "requirements-dev.txt" }}
+          paths:
+            - .batect/caches
