@@ -30,6 +30,6 @@ workflows:
   main:
     jobs:
       - build-and-test
-      - train-model
+      - train-model:
           requires:
             - build-and-test
