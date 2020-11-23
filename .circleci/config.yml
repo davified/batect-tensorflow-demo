@@ -15,6 +15,7 @@ jobs:
           command: ./batect unit_test
           name: Run unit tests
   train-model:
+    executor: docker/docker
     steps:
       - checkout
       - run:
