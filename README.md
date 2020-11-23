@@ -1,5 +1,7 @@
 # Tensorflow batect demo
 
+[![batect-tensorflow-demo]( https://circleci.com/gh/davified/batect-tensorflow-demo.svg?style=svg)](https://circleci.com/gh/davified/batect-tensorflow-demo)
+
 ## Prerequisites
 
 - [Docker](https://docs.docker.com/desktop/)
