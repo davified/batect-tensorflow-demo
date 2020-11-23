@@ -5,7 +5,7 @@ orbs:
 
 jobs:
   build-and-test:
-    executor: docker/docker
+    executor: maven/default
     steps:
       - checkout
       - run:
