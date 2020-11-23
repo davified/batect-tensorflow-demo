@@ -16,16 +16,22 @@
 
 # train model locally
 ./batect train_model
-
-# train model on GCP
-./batect train_model_on_gcloud
-# view job progress and logs at https://console.cloud.google.com/ai-platform/dashboard?project=YOUR_PROJECT_ID
-# view model artifacts at your GCS bucket: https://console.cloud.google.com/storage/browser/
 ```
 
 ## Deploying the model
 
+If you'd like to train and deploy the model to Google Cloud Platform, you'll need to follow [these instructions](https://cloud.google.com/ai-platform/docs/getting-started-keras#set_up_your_project) to:
+- Create a new GCP project
+- Enable billing and some APIs
+- Create a service account and **download the service account's credentials to the `./credentials` directory in this repo**
+- **In `batect.yml`, update GOOGLE_APPLICATION_CREDENTIALS to `/code/credentials/YOUR_KEY.json`**
+
 ```shell script
+# train model on GCP
+./batect train_model_on_gcloud
+# view job progress and logs at https://console.cloud.google.com/ai-platform/dashboard?project=YOUR_PROJECT_ID
+# view model artifacts at your GCS bucket: https://console.cloud.google.com/storage/browser/
+
 # create model resource
 ./batect create_model_resource
 
@@ -47,15 +53,12 @@
 ./batect start_jupyter
 ```
 
-
-## Instructions for setting up your own GCP project
-- https://cloud.google.com/ai-platform/docs/getting-started-keras#set_up_your_project
-- Continue deploying keras model here: https://cloud.google.com/ai-platform/docs/getting-started-keras#quickstart-training
-- Clean up: https://cloud.google.com/ai-platform/docs/getting-started-keras#cleaning_up
+## Clean up
+- To avoid unnecessary GCP charges, remember to clean up all Google Cloud resources used in this project: https://cloud.google.com/ai-platform/docs/getting-started-keras#cleaning_up
 
 
 # TODOs:
-- Update README about credentials
+- [x] Update README about credentials
 - [x] add unit test script
 - [x] add tensorboard command
 - add CI
