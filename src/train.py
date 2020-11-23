@@ -44,6 +44,7 @@ model.compile(
 # train model
 
 print("Fit model on training data")
+#pylint: disable=invalid-name
 history = model.fit(
     x_train,
     y_train,

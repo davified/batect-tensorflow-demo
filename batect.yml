@@ -1,5 +1,5 @@
 containers:
-  python_tensorflow:
+  python_tensorflow: # this can be named anything
     image: tensorflow/tensorflow:2.1.0-py3
     working_directory: /code
     volumes:
@@ -35,6 +35,12 @@ tasks:
     run:
       container: python_tensorflow
       command: bin/unit-test.sh
+
+  lint:
+    description: Run pylint
+    run:
+      container: python_tensorflow
+      command: bin/lint.sh
 
   train_model:
     description: Train ML model

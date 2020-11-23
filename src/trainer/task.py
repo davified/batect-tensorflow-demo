@@ -21,11 +21,11 @@ import argparse
 import os
 
 from tensorflow.python.keras.saving.saved_model_experimental import export_saved_model
+import tensorflow as tf
 
 from . import model
 from . import util
 
-import tensorflow as tf
 
 
 def get_args():
