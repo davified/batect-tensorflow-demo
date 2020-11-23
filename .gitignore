@@ -21,7 +21,7 @@ __pycache__
 build/
 
 # secrets
-credentials/*.json
+credentials/**/*
 
 # tensorflow / keras
 local-training-output

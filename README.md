@@ -65,11 +65,25 @@ If you'd like to train and deploy the model to Google Cloud Platform, you'll nee
 - [x] Update README about credentials
 - [x] add unit test script
 - [x] add tensorboard command
-- add CI
+- [x] add CI
+- [x] Add linting
+- [x] Add GCP credentials (update README to reflect credentials download and referring to credentials)
 - refactor shell scripts
+- merge ./batect create_model_resource into deploy_model
+- Add go.sh to install Docker and Java
 - [x] draw diagram for batect
     - what you want to do (e.g. python train.py)
     - run in a docker container
     - batect command
     - callers of batect: developers, CI
+- create project template for plain python project
+- find or write go script
+    - mac
+    - windows
+    - linux?
+- add go script to README and article
+- article
+    - add link to documentation
+    - add gotchas readme
+    
 
