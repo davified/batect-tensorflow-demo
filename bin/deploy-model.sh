@@ -2,12 +2,11 @@
 
 set -e
 
+bin/create-model-resource.sh
+
 PROJECT_ID='batect-keras-demo'
 MODEL_NAME="my_keras_model"
 JOB_DIR='gs://batect-keras-demo/keras-job-dir'
-
-echo "Authenticating using service account credentials: $GOOGLE_APPLICATION_CREDENTIALS"
-gcloud auth activate-service-account --key-file=$GOOGLE_APPLICATION_CREDENTIALS
 
 # Get a list of directories in the `keras_export` parent directory. Then pick
 # the directory with the latest timestamp, in case you've trained multiple times.

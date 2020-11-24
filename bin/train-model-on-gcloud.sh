@@ -2,13 +2,11 @@
 
 set -e
 
+bin/gcloud-authenticate.sh
+
 PROJECT_ID='batect-keras-demo'
 BUCKET_NAME='batect-keras-demo'
 REGION='australia-southeast1'
-
-
-echo "Authenticating using service account credentials: $GOOGLE_APPLICATION_CREDENTIALS"
-gcloud auth activate-service-account --key-file=$GOOGLE_APPLICATION_CREDENTIALS
 
 JOB_DIR="gs://$BUCKET_NAME/keras-job-dir"
 JOB_NAME="train_model_job_$(date +%s)" # TODO: replace with TAG
