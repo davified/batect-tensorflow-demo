@@ -20,7 +20,7 @@ bin/non_batect/go.sh
 # work in progress. in the meantime, please install Docker and Java manually if it's not already installed
 ```
 
-Run the folloiwng batect tasks
+Run the following batect tasks
 
 ```shell script
 # install dependencies
