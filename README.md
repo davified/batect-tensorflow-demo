@@ -11,6 +11,17 @@
 
 ## Setup
 
+Install the dependencies needed by `batect` on your host machine
+```shell script
+# mac users
+bin/non_batect/go.sh
+
+# windows / linux
+# work in progress. in the meantime, please install Docker and Java manually if it's not already installed
+```
+
+Run the folloiwng batect tasks
+
 ```shell script
 # install dependencies
 ./batect setup # this will take a couple of minutes when it's first run, but batect.yml specifies some caching so subsequent runs will be faster 
@@ -77,7 +88,7 @@ JOB_NAME='REPLACE_ME_WITH_JOB_NAME' ./batect get_predictions
     - callers of batect: developers, CI
 - create project template for plain python project
 - find or write go script
-    - mac
+    - [x] mac
     - windows
     - linux?
 - add go script to README and article
