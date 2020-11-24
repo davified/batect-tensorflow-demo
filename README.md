@@ -36,16 +36,16 @@ If you'd like to train and deploy the model to Google Cloud Platform, you'll nee
 # view job progress and logs at https://console.cloud.google.com/ai-platform/dashboard?project=YOUR_PROJECT_ID
 # view model artifacts at your GCS bucket: https://console.cloud.google.com/storage/browser/
 
-# create model resource
-./batect create_model_resource
-
 # deploy model version
-./batect deploy_model -- REPLACE_ME_WITH_JOB_NAME 
+JOB_NAME='REPLACE_ME_WITH_JOB_NAME' ./batect deploy_model
 # you can find this in the terminal output of the ./batect train_model_on_gcloud command 
-# (e.g. ./batect deploy_model -- train_model_job_1606023193)
+# (e.g. JOB_NAME='train_model_job_1606023193' ./batect deploy_model)
 
-# your model is live here! https://console.cloud.google.com/ai-platform/models?project=batect-keras-demo 
-# (select the region that you used in bin/create-model-resource.sh)  
+# your model is live here! https://console.cloud.google.com/ai-platform/models?project=batect-keras-demo (select the region that you used in bin/create-model-resource.sh)
+
+# make predictions to your model
+JOB_NAME='REPLACE_ME_WITH_JOB_NAME' ./batect get_predictions
+# (e.g. JOB_NAME='train_model_job_1606023193' ./batect get_predictions)
 ```
 
 ## Other things you can do 
@@ -69,7 +69,7 @@ If you'd like to train and deploy the model to Google Cloud Platform, you'll nee
 - [x] Add linting
 - [x] Add GCP credentials (update README to reflect credentials download and referring to credentials)
 - refactor shell scripts
-- merge ./batect create_model_resource into deploy_model
+- [x] merge ./batect create_model_resource into deploy_model
 - [x] draw diagram for batect
     - what you want to do (e.g. python train.py)
     - run in a docker container
@@ -85,4 +85,5 @@ If you'd like to train and deploy the model to Google Cloud Platform, you'll nee
     - add link to documentation
     - add gotchas readme
 - unit test - write a real unit test
+- replace JOB_NAME with something more sensible
 

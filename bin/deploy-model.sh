@@ -15,7 +15,7 @@ SAVED_MODEL_PATH="$JOB_DIR/keras_export/$JOB_NAME"
 echo "SAVED_MODEL_PATH: $SAVED_MODEL_PATH"
 
 # Create model version based on that SavedModel directory
-MODEL_VERSION="v1"
+MODEL_VERSION="v_$JOB_NAME"
 gcloud ai-platform versions create $MODEL_VERSION \
   --project $PROJECT_ID \
   --model $MODEL_NAME \

@@ -6,7 +6,7 @@ bin/gcloud-authenticate.sh
 
 PROJECT_ID='batect-keras-demo'
 MODEL_NAME='my_keras_model'
-MODEL_VERSION='v1'
+MODEL_VERSION="v_$JOB_NAME"
 
 
 INPUT_DATA_PATH='data/prediction_input.json'

@@ -66,12 +66,6 @@ tasks:
       container: gcloud
       command: bin/init.sh
 
-  create_model_resource:
-    description: Create model resource on GCP
-    run:
-      container: gcloud
-      command: bin/create-model-resource.sh
-
   deploy_model:
     description: Deploy model to GCP
     run:
@@ -85,6 +79,8 @@ tasks:
     run:
       container: gcloud
       command: bin/get-predictions.sh
+      environment:
+        JOB_NAME: $JOB_NAME
 
   launch_tensorboard:
     description: Launch tensorboard
